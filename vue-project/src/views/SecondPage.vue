@@ -11,8 +11,10 @@
         </div>
 
         <div class="mid">
-          <!-- <ExamListComponent></ExamListComponent> -->
-          <ExamMainComponent></ExamMainComponent>
+          <ExamListComponent v-show="state.midPage == 0"
+          :pMovePage="movePage"></ExamListComponent>
+          <ExamMainComponent v-show="state.midPage == 1"
+          :pMovePage="movePage"></ExamMainComponent>
         </div>
       </div>
 
@@ -54,18 +56,27 @@ export default {
 
     // data
     let state = reactive({
-      examId: route.query.examId
+      examId: route.query.examId,
+      midPage: 0
     })
 
     //onMounted
     onMounted(function () {
       // console.log('examId >> ', state.examId)
 
-      store
+      
     })
 
+    const movePage = function (pageNum) {
+			console.log("*** GO PAGE: ", pageNum);
+			// if (state.midPage === -1 || pageNum > 0)
+				state.midPage = pageNum;
+		};
+
+
     return {
-      state
+      state,
+      movePage
     }
   }
 }

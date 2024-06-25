@@ -2,7 +2,7 @@
   <div class="mid">
     <div class="content_center">
       <ul class="serials">
-        <li v-for="item in state.itemList" :key="item">
+        <li v-for="item in state.itemList" :key="item" @click="movePage()">
           {{ item }}
         </li>
       </ul>
@@ -61,7 +61,12 @@ import { useRoute } from 'vue-router'
 
 export default {
   name: 'ExamListComponrnt',
-  props: {},
+  props: {
+    pMovePage: {
+      type: Function,
+      default: -1,
+    },
+  },
   components: {},
   setup() {
     // const store = useStore()
@@ -83,8 +88,14 @@ export default {
       }
     })
 
+    
+    const movePage = function () {
+      props.pMovePage(1);
+    }
+
     return {
-      state
+      state,
+      movePage
     }
   }
 }
