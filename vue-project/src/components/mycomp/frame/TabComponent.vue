@@ -6,10 +6,10 @@
           <a class="nav-link">홈</a>
         </RouterLink>
 
-        <a class="nav-link">문제</a>
-        <a class="nav-link">시험</a>
-        <a class="nav-link">북마크</a>
-        <a class="nav-link">포럼</a>
+        <a class="nav-link" @click="testBtn()">문제</a>
+        <a class="nav-link" @click="tipBtn()">팁</a>
+        <a class="nav-link" @click="regTestBtn()">문제 등록</a>
+        <a class="nav-link" @click="regTipBtn()">팁 등록</a>
       </nav>
     </div>
   </div>
@@ -65,3 +65,77 @@
   /* align-items: center; */
 }
 </style>
+
+<script>
+import { reactive, onMounted } from 'vue'
+// import { useStore } from 'vuex'
+import { useRoute } from 'vue-router'
+
+export default {
+  name: 'TabComponent',
+  props: {
+    pTestBtn: {
+      type: Function,
+      default: -1
+    },
+    pTipBtn: {
+      type: Function,
+      default: -1
+    },
+    pRegTestBtn: {
+      type: Function,
+      default: -1
+    },
+    pRegTipBtn: {
+      type: Function,
+      default: -1
+    }
+  },
+  components: {},
+  setup(props) {
+    // const store = useStore()
+    //const { proxy } = getCurrentInstance();
+    const route = useRoute()
+
+    // data
+    let state = reactive({
+      testId: route.query.testId,
+      testType: route.query.testType,
+      titleText: '타이틀'
+    })
+
+    //onMounted
+    onMounted(function () {
+      console.log('testId >> ', state.testId)
+    })
+
+    const testBtn = function () {
+      props.pTestBtn()
+    }
+
+    const tipBtn = function () {
+      props.pTipBtn()
+    }
+
+    const regTestBtn = function () {
+      props.pRegTestBtn()
+    }
+
+    const regTipBtn = function () {
+      props.pRegTipBtn()
+    }
+
+    // const testBtn = function () {
+    //   props.pMovePage(1)
+    // }
+
+    return {
+      state,
+      testBtn,
+      tipBtn,
+      regTestBtn,
+      regTipBtn
+    }
+  }
+}
+</script>

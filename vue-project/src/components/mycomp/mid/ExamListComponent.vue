@@ -2,13 +2,14 @@
   <div class="mid">
     <div class="content_center">
       <ul class="serials">
-        <li v-for="item in state.itemList" :key="item" @click="movePage()">
-          {{ item }}
+        <li v-for="(item, index) in state.itemList" :key="index">
+          <div v-on:click="onClickItem(index)">{{ item }}</div>
         </li>
       </ul>
     </div>
   </div>
 </template>
+<!-- @click="movePage()" -->
 
 <style scoped>
 .content_center {
@@ -64,11 +65,11 @@ export default {
   props: {
     pMovePage: {
       type: Function,
-      default: -1,
-    },
+      default: -1
+    }
   },
   components: {},
-  setup() {
+  setup(props) {
     // const store = useStore()
     //const { proxy } = getCurrentInstance();
     const route = useRoute()
@@ -83,19 +84,38 @@ export default {
     onMounted(function () {
       console.log('examId >> ', state.examId)
 
-      for (var i = 0; i < 10; ++i) {
-        state.itemList.push('랜덤')
-      }
+      // for (var i = 0; i < 10; ++i) {
+      //   state.itemList.push('랜덤')
+      // }
+
+      state.itemList.push('탭에서 버튼을 선택해 주세요.')
+
+      state.itemList.push('[클릭하면 이동] 노션 요약1 (데이터베이스 설계)')
+      state.itemList.push('[클릭하면 이동] 노션 요약2 (응용 SW 기초 기술 활용)')
+      state.itemList.push('[클릭하면 이동] 노션 요약3 (SQL 문법)')
     })
 
-    
     const movePage = function () {
-      props.pMovePage(1);
+      props.pMovePage(1)
+    }
+
+    const onClickItem = function (itemIdx) {
+      if (itemIdx == 1) {
+        window.location.href =
+          'https://piquant-knife-bd1.notion.site/78116328e0714fe79bc933440e67f88b?pvs=4'
+      } else if (itemIdx == 2) {
+        window.location.href =
+          'https://piquant-knife-bd1.notion.site/SW-7f51cf2855c0441c9d1e440c4a76bb95?pvs=4'
+      } else if (itemIdx == 3) {
+        window.location.href =
+          'https://piquant-knife-bd1.notion.site/SQL-c44786ac916a4880883a00104b349087?pvs=4'
+      }
     }
 
     return {
       state,
-      movePage
+      movePage,
+      onClickItem
     }
   }
 }

@@ -10,6 +10,8 @@ import HomeView from '@/views/old/HomeView.vue'
 import TestPage from '@/views/old/TestPage.vue'
 // import SamplePage from '@/views/SamplePage.vue'
 
+import ExamMain from '@/views/ExamMain.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -47,6 +49,11 @@ const router = createRouter({
       path: '/second',
       name: 'secondPage',
       component: SecondPage
+    },
+    {
+      path: '/main',
+      name: 'ExamMain',
+      component: ExamMain
     },
     {
       path: '/about',

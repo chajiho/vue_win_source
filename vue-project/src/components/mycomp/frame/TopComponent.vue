@@ -56,37 +56,31 @@ export default {
 
     // data
     let state = reactive({
-      examId: route.query.examId,
+      testId: route.query.testId,
+      testType: route.query.testType,
       titleText: '타이틀'
     })
 
     //onMounted
     onMounted(function () {
-      console.log('examId >> ', state.examId)
+      console.log('testId >> ', state.testId)
 
-      switch (state.examId) {
+      switch (state.testId) {
+        case '0':
+          state.titleText = '정보처리기능사 '
+          break
         case '1':
-          state.titleText = '정보처리기능사 필기'
+          state.titleText = '정보처리산업기사 '
           break
         case '2':
-          state.titleText = '정보처리기능사 실기'
-          break
-        case '3':
-          state.titleText = '정보처리산업기사 필기'
-          break
-        case '4':
-          state.titleText = '정보처리산업기사 실기'
-          break
-        case '5':
-          state.titleText = '정보처리기사 필기'
-          break
-        case '6':
-          state.titleText = '정보처리기사 실기'
+          state.titleText = '정보처리기사 '
           break
 
         default:
           break
       }
+
+      state.titleText += state.testType == 'c' ? '필기' : '실기'
     })
 
     return {

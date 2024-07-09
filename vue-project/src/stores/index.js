@@ -10,7 +10,9 @@ export default createStore({
     infoTechTestDataList: {},
     infoTechTestData: {},
     infoTechTestTip: {},
-    infoTechTestTipList: {}
+    infoTechTestTipList: {},
+    infoTechTestCategoryList: {},
+    infoTechTestTipCategoryList: {}
   },
   getters: {},
   mutations: {
@@ -27,6 +29,12 @@ export default createStore({
       state.infoTechTestTip = infoTechTestTip
     },
     SET_INFOTECHTESTTIPLIST(state, infoTechTestTipList) {
+      state.infoTechTestTipList = infoTechTestTipList
+    },
+    SET_INFOTECHTEST_CATEGORYLIST(state, infoTechTestCategoryList) {
+      state.infoTechTestCategoryList = infoTechTestCategoryList
+    },
+    SET_INFOTECHTESTTIP_CATEGORYLIST(state, infoTechTestTipList) {
       state.infoTechTestTipList = infoTechTestTipList
     }
   },
@@ -99,6 +107,66 @@ export default createStore({
       const promise = await axios
         .get(
           SERVER.URL + SERVER.ROUTES.infotechtipList + '?testId=' + testId + '&testType=' + testType
+        )
+        .then((res) => {
+          commit('SET_INFOTECHTESTTIPLIST', res.data)
+          return {
+            isFinish: true
+          }
+        })
+        .catch((err) => console.error(err.response.data))
+      return promise
+    },
+
+    // 리스트 가져오기
+    async getInfoTechTestCategoryList({ commit }, [testId, testType]) {
+      console.log(
+        'getInfoTechTest :: ',
+        SERVER.URL + SERVER.ROUTES.infotechCategoryList,
+        '?testId=',
+        testId,
+        '&testType=',
+        testType
+      )
+
+      const promise = await axios
+        .get(
+          SERVER.URL +
+            SERVER.ROUTES.infotechCategoryList +
+            '?testId=' +
+            testId +
+            '&testType=' +
+            testType
+        )
+        .then((res) => {
+          commit('SET_INFOTECHTESTDATALIST', res.data)
+          return {
+            isFinish: true
+          }
+        })
+        .catch((err) => console.error(err.response.data))
+      return promise
+    },
+
+    async getInfoTechTipCategoryList({ commit }, [testId, testType]) {
+      console.log(
+        'getInfoTechTipList :: ',
+        SERVER.URL +
+          SERVER.ROUTES.infotechtipCategoryList +
+          '?testId=' +
+          testId +
+          '&testType=' +
+          testType
+      )
+
+      const promise = await axios
+        .get(
+          SERVER.URL +
+            SERVER.ROUTES.infotechtipCategoryList +
+            '?testId=' +
+            testId +
+            '&testType=' +
+            testType
         )
         .then((res) => {
           commit('SET_INFOTECHTESTTIPLIST', res.data)

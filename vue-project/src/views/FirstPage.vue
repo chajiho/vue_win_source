@@ -1,9 +1,7 @@
 <template>
   <div style="width: 100%; display: flex; align-items: center">
     <div class="title">
-      <p class="text-info">
-        뉴비티는 문제를 직접 등록하고, 지능적으로 훈련하는 신개념 CBT 시스템입니다!
-      </p>
+      <p class="text-info">이곳은 다같이 국가기술자격시험을 통과하고자 만든 웹페이지 입니다~</p>
       <h3>
         <b class="title_text">
           자격증(시험)을 선택하면
@@ -17,19 +15,32 @@
       <br />
       <br />
       <div class="mid_box">
-        <h4 class="sub_title">국가기술자격시험</h4>
+        <h4 class="sub_title">자격증 선택</h4>
         <div class="btn">
-          <RouterLink to="/second?examId=1">정보처리기능사 필기</RouterLink>
+          <RouterLink to="/main?testId=0&testType=c" style="color: blue"
+            >정보처리기능사 필기</RouterLink
+          >
           <br />
-          <RouterLink to="/second?examId=2">정보처리기능사 실기</RouterLink>
+          <RouterLink to="/main?testId=0&testType=a" style="color: blue"
+            >정보처리기능사 실기</RouterLink
+          >
           <br />
-          <RouterLink to="/second?examId=3">정보처리산업기사 필기</RouterLink>
           <br />
-          <RouterLink to="/second?examId=4">정보처리산업기사 실기</RouterLink>
+          <!-- RouterLink to="/main?testId=1&testType=c" -->
+          <RouterLink to="/" style="color: black">정보처리산업기사 필기</RouterLink>
           <br />
-          <RouterLink to="/second?examId=5">정보처리기사 필기</RouterLink>
+          <!-- RouterLink to="/main?testId=1&testType=a" -->
+          <RouterLink to="/" style="color: black">정보처리산업기사 실기</RouterLink>
           <br />
-          <RouterLink to="/second?examId=6">정보처리기사 실기</RouterLink>
+          <br />
+          <RouterLink to="/main?testId=2&testType=c" style="color: blue"
+            >정보처리기사 필기</RouterLink
+          >
+          <br />
+          <RouterLink to="/main?testId=2&testType=a" style="color: blue"
+            >정보처리기사 실기</RouterLink
+          >
+          <br />
           <br />
         </div>
       </div>

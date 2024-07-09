@@ -7,6 +7,8 @@ export default {
     infotech: '/infotech',
     infotechtip: '/infotechtip',
     infotechList: '/infotechList', // 문제 가져오기
-    infotechtipList: '/infotechtipList' // 팁 가져오기
+    infotechtipList: '/infotechtipList', // 팁 가져오기
+    infotechCategoryList: '/infotechCategoryList', // 문제 가져오기
+    infotechtipCategoryList: '/infotechtipCategoryList' // 팁 가져오기
   }
 }

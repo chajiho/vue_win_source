@@ -6,13 +6,15 @@
           모든 문제들의 저작권은 원저작권자에게 있습니다. 본 사이트는 웹상에 공개되어 있는 문제만
           모아서 보여드립니다.
           <br />
-          <a href=""><b>저작권 안내</b></a>
+          저는 잘못이 없습니다...
+          <br />
+          <!-- <a href=""><b>저작권 안내</b></a>
           &nbsp;&nbsp;&nbsp;
           <a href=""><b>데이터 보호 안내</b></a>
           &nbsp;&nbsp;&nbsp;
-          <a href=""><b>제휴 문의</b></a>
+          <a href=""><b>제휴 문의</b></a> -->
         </p>
-        <p>copyright2024 뉴비티::새로운 CBT 시스템 - newbt.kr</p>
+        <p>copyright2024 Present by :: Cha jiho :: 다들 자격증 따길 바래~</p>
       </div>
     </div>
   </div>
